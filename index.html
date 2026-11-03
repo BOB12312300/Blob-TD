@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c32">
+  <meta name="description" content="Explore ten worlds, build ten towers, and play 15 blob-themed mini-games in Blob TD.">
+  <title>Blob TD · Version 2.1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Blob TD home">
+        <span class="brand-mark" aria-hidden="true">♜</span>
+        <span><strong>BLOB TD</strong><small>SLIME WARS</small></span>
+      </a>
+      <div class="wallet" aria-label="Player gems">
+        <span class="wallet-pill gem-pill"><span aria-hidden="true">💎</span> <b id="walletGems">0</b></span>
+      </div>
+    </header>
+
+    <main>
+      <section id="menuScreen" class="screen menu-screen" aria-live="polite">
+        <div class="menu-backdrop" aria-hidden="true"></div>
+        <div id="menuContent" class="menu-content"></div>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen hidden" aria-label="Battlefield">
+        <div class="battle-topbar">
+          <div class="battle-heading">
+            <button class="icon-button" id="battleMenuBtn" type="button" aria-label="Main menu">⌂</button>
+            <div><strong id="battleLevel">Green Grasslands · Level 1</strong><small id="battleStatus">Prepare your defenses!</small></div>
+          </div>
+          <div class="battle-metrics">
+            <span>WAVE <b id="battleWave">0 / 5</b></span>
+            <span>CASTLE <b id="battleHealth">100 / 100</b></span>
+            <span>REMAINING <b id="battleRemaining">0</b></span>
+          </div>
+          <div class="battle-actions">
+            <button id="startWaveBtn" class="primary-button" type="button">Start Wave</button>
+            <button id="autoWaveBtn" class="secondary-button" type="button" aria-pressed="false">Auto wave: Off</button>
+            <button id="pauseBtn" class="secondary-button" type="button">Ⅱ Pause</button>
+            <button id="speedBtn" class="secondary-button" type="button">1× Speed</button>
+          </div>
+        </div>
+        <div class="battle-layout">
+          <div class="map-frame">
+            <canvas id="gameCanvas" width="960" height="620" aria-label="Tower defense map. Select a tower, then click grass to place it."></canvas>
+            <div id="mapHint" class="map-hint">Choose a tower, then place it on open grass.</div>
+          </div>
+          <aside class="battle-sidebar">
+            <div class="sidebar-heading"><h2>Build defenses</h2><span class="battle-coin"><span aria-hidden="true">🪙</span> <b id="battleCoins">150</b></span></div>
+            <div id="battleTowerShop" class="battle-tower-shop"></div>
+            <div id="towerDetails" class="tower-details">
+              <h3>Defender's guide</h3>
+              <p>Slimes follow the road. Place towers nearby and protect the castle!</p>
+            </div>
+            <button id="cancelPlacementBtn" class="quiet-button hidden" type="button">Cancel placement</button>
+            <p class="sidebar-tip">Tip: Select a tower on the map to upgrade or sell it.</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="modalRoot"></div>
+    <footer>Blob TD · Version 2.1 <span>·</span> A cozy little castle defense adventure</footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
